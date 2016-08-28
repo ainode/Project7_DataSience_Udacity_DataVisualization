@@ -20,9 +20,8 @@
      myChart.addPctAxis("y", "Survived");
      mySeries = myChart.addSeries(['Survived'], dimple.plot.bar);
      mySeries.aggregate = dimple.aggregateMethod.count;
-     // myChart.addSeries("Survived", dimple.plot.bar);
-	console.log(mySeries)
      myLegend = myChart.addLegend(65, 10, 510, 20, "right");
+     //replace "0" with "Perished" and "1" with "Survived"
      myLegend._getEntries = function() {
      		var orderedValues = ["0", "1"];
            var newNames = {
