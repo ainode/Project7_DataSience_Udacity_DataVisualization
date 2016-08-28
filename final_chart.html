@@ -23,7 +23,26 @@
      // myChart.addSeries("Survived", dimple.plot.bar);
 	console.log(mySeries)
      myLegend = myChart.addLegend(65, 10, 510, 20, "right");
-     myChart.draw();
+     myLegend._getEntries = function() {
+     		var orderedValues = ["0", "1"];
+           var newNames = {
+           	"0" : "Perished",
+                 "1" : "Survived"
+                 };
+           var entries = [];
+           orderedValues.forEach(function(v) {
+           	entries.push({
+                		key : newNames[v],
+                      fill : myChart.getColor(v).fill,
+                      stroke : myChart.getColor(v).stroke,
+                      opacity : myChart.getColor(v).opacity,
+                      series : [mySeries],
+                      aggField : [v]
+                        });
+                    }, this);
+                    return entries;
+                };
+			    myChart.draw();
 
 });
   </script>
