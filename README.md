@@ -18,6 +18,6 @@ final_chart1.html(second iteration) : the second commenter believed that the tex
 
 final_chart2.html(third iteration) : the third commenter said that it would be better to have some title to describe the purpose of the chart and that it would be better that the chart was larger and at the centre of the screen.
 
-final_chart3.html(forth iteration) : this include the last change suggested by the third commenter.
+final_chart3.html(forth iteration) : the forth commenter(Udacity reviewer) suggested:  "I had to hover and discover in the tooltip that the left bar was for the female sex and the right bar for the male sex. There should be some obvious indication in the visualization what each bar represents and the viewer shouldn't have to explore the tooltip to find this out. Because sex is encoded in the x-axis like this, it might be good to create a label for each bar." I added the labels for male and female underneath each bar while keeping the class number at the middle.
 
-
+final_chart4.html(fifth iteration) : this include the last change suggested by the forth commenter(Udacity reviewer).
