@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html>
-<div id="chartContainer">
-  <script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js">
-  <script src="http://dimplejs.org/dist/dimple.v2.2.0.min.js"></script>
-<style>
-	h2 {
-		text-align:center;
-	}
-</style>
-  <script type="text/javascript">
-     /*
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="chartContainer">
+        <script src="http://d3js.org/d3.v3.min.js">
+        </script> 
+        <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js">
+        </script>
+        <script src="http://dimplejs.org/dist/dimple.v2.2.0.min.js">
+        </script>
+        <style>
+        h2 {
+        text-align:center;
+        }
+        </style>
+        <script type="text/javascript">
+        /*
         Dimple.js Chart construction code
-     */
-     var svg = dimple.newSvg("#chartContainer", 590, 400);
-    /*
+        */
+        var svg = dimple.newSvg("#chartContainer", 590, 400);
+        /*
         Use D3 to load the csv file
         and pass the contents of it to the draw function
-    */
-     d3.csv("titanic_data.csv", function(data) {
-     var myChart = new dimple.chart(svg, data);
-     myChart.setBounds(60, 30, 510, 330);
-	/* using two categories for x */
-     myChart.addCategoryAxis("x", ['Pclass', "Sex"]);
-	/* using percentile for y axis */
-     myChart.addPctAxis("y", "Survived");
-     mySeries = myChart.addSeries(['Survived'], dimple.plot.bar);
-     mySeries.aggregate = dimple.aggregateMethod.count;
-     console.log(mySeries)
-     myLegend = myChart.addLegend(65, 10, 510, 20, "right");
-     myLegend._getEntries = function() {
-     		var orderedValues = ["0", "1"];
+        */
+        d3.csv("titanic_data.csv", function(data) {
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 30, 510, 330);
+        /* using two categories for x */
+        myChart.addCategoryAxis("x", ['Pclass', "Sex"]);
+        /* using percentile for y axis */
+        myChart.addPctAxis("y", "Survived");
+        mySeries = myChart.addSeries(['Survived'], dimple.plot.bar);
+        mySeries.aggregate = dimple.aggregateMethod.count;
+        console.log(mySeries)
+        myLegend = myChart.addLegend(65, 10, 510, 20, "right");
+        myLegend._getEntries = function() {
+            var orderedValues = ["0", "1"];
            var newNames = {
-           	"0" : "Perished",
+            	 "0" : "Perished",
                  "1" : "Survived"
                  };
            var entries = [];
            orderedValues.forEach(function(v) {
-           	entries.push({
-                		key : newNames[v],
+            entries.push({
+                        key : newNames[v],
                       fill : myChart.getColor(v).fill,
                       stroke : myChart.getColor(v).stroke,
                       opacity : myChart.getColor(v).opacity,
@@ -48,9 +55,10 @@
                     }, this);
                     return entries;
                 };
-			    myChart.draw();
+                myChart.draw();
 
-});
-  </script>
-</div>
+        });
+        </script>
+    </div>
+</body>
 </html>
